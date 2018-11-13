@@ -12,10 +12,17 @@ def request(url):
 def parsing(r_html):
     """Parse the html to get articles"""
     soup = BeautifulSoup(r_html, features='lxml')
-    titles = soup.find('h2', attrs={'class': 'esl82me2'})
-    #title = soup.find('span', 'balancedHeadline')
-    for title in titles:
-        print(title)
+#    for story_heading in soup.find_all(class_="story-heading"):
+#        if story_heading.a:
+#            print(story_heading.a)
+#        else:
+#            print(story_heading)
+    #titles = soup.find_all(class_="story-heading")
+    title = soup.find_all('h2', attrs={'class': 'css-8uvv5f esl82me2'})
+    for titles in title:
+        print(titles)
+        # title_stripped = titles.replace("h", "")
+        # print(title_stripped)
 
 def main(url):
     #request(url)
